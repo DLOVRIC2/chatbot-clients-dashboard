@@ -51,7 +51,7 @@ export const AlgoriseSpinner: React.FC = () => {
           @keyframes particle-float {
             0% { transform: translate(0, 0) scale(0); opacity: 0; }
             20% { opacity: 0.8; }
-            100% { transform: translate(var(--tx, 20px), var(--ty, -30px)) scale(1); opacity: 0; }
+            100% { transform: translate(var(--tx), var(--ty)) scale(1); opacity: 0; }
           }
           
           .icon {
@@ -173,11 +173,11 @@ export const AlgoriseSpinner: React.FC = () => {
       
       {/* Particles */}
       <g className="particles">
-        <circle fill="#00E5E5" cx="100" cy="100" r="3" style={{ ['--tx' as any]: '30px', ['--ty' as any]: '-20px' }} />
-        <circle fill="#BB00FF" cx="100" cy="100" r="2" style={{ ['--tx' as any]: '-25px', ['--ty' as any]: '-30px' }} />
-        <circle fill="#FFBB00" cx="100" cy="100" r="2.5" style={{ ['--tx' as any]: '40px', ['--ty' as any]: '-10px' }} />
-        <circle fill="#00E5E5" cx="100" cy="100" r="1.5" style={{ ['--tx' as any]: '-15px', ['--ty' as any]: '-40px' }} />
-        <circle fill="#FFBB00" cx="100" cy="100" r="2" style={{ ['--tx' as any]: '20px', ['--ty' as any]: '-35px' }} />
+        <circle fill="#00E5E5" cx="100" cy="100" r="3" style={{ ['--tx' as string]: '30px', ['--ty' as string]: '-20px' }} />
+        <circle fill="#BB00FF" cx="100" cy="100" r="2" style={{ ['--tx' as string]: '-25px', ['--ty' as string]: '-30px' }} />
+        <circle fill="#FFBB00" cx="100" cy="100" r="2.5" style={{ ['--tx' as string]: '40px', ['--ty' as string]: '-10px' }} />
+        <circle fill="#00E5E5" cx="100" cy="100" r="1.5" style={{ ['--tx' as string]: '-15px', ['--ty' as string]: '-40px' }} />
+        <circle fill="#FFBB00" cx="100" cy="100" r="2" style={{ ['--tx' as string]: '20px', ['--ty' as string]: '-35px' }} />
       </g>
       
       {/* Icon: Magnifying Glass */}

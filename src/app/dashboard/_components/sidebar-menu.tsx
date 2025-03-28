@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/sidebar";
 import { getTimeFromSidebarTimeTitle } from "@/lib/utils";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import {
   Pagination,
   PaginationContent,
@@ -77,11 +77,7 @@ export default function DashboardSidebarMenu({
   });
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    fetchMenus(1);
-  }, [menu_title]);
-
-  const fetchMenus = async (page: number) => {
+  const fetchMenus = useCallback(async (page: number) => {
     setIsLoading(true);
     try {
       const { menus, pagination: newPagination } = await getMenus(
@@ -95,7 +91,11 @@ export default function DashboardSidebarMenu({
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [menu_title]);
+
+  useEffect(() => {
+    fetchMenus(1);
+  }, [menu_title, fetchMenus]);
 
   const handlePageChange = (page: number) => {
     fetchMenus(page);

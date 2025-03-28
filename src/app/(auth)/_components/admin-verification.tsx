@@ -55,7 +55,7 @@ export default function AdminVerification({
         toast.error(state.message);
       }
     }
-  }, [state, reset]);
+  }, [state, reset, onVerified]);
 
   return (
     <div className="flex flex-col items-center justify-center space-y-6 p-8">
